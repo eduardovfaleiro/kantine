@@ -36,17 +36,6 @@ public class ProdutoDAO {
             //executando o script sql acima e guardando o resultado dentro da variavel res
             ResultSet res = stmt.executeQuery(sql);
             //percorrendo o res co o looping while
-            /*
-            // UPDATEs e SELECTs
-            public Produto(int codigo, String nome, String descricao, float preco, byte[] imagens, boolean disponivel) {
-                this.codigo = codigo;
-                this.nome = nome;
-                this.descricao = descricao;
-                this.preco = preco;
-                this.imagens = imagens;
-                this.disponivel = disponivel;
-            }
-            */
             while (res.next()) {
                 Produto produto = new Produto(res.getInt("codigo"), res.getString("nome"), res.getString("descricao"), res.getFloat("preco"), (byte[]) res.getBytes("imagem"), res.getBoolean("disponivel"));
                 //adicionar objeto marca na lista
@@ -76,9 +65,10 @@ public class ProdutoDAO {
             //trocando o ? pelo nome da marca
             stmt.setInt(1, produto.getCodigo());
             stmt.setString(2, produto.getDescricao());
-            stmt.setInt(3, p.getCodCliente());
-            stmt.setDate(4, (java.sql.Date) p.getDataHora());
-            stmt.setInt(5, 0);
+            stmt.setFloat(3, produto.getPreco());
+            stmt.setBytes(4, produto.getImagens());
+            stmt.setBoolean(5, true);
+            stmt.setString(6, produto.getNome());
             
             //exeutando o scrpit no banco de dados
             stmt.execute();
@@ -105,16 +95,16 @@ public class ProdutoDAO {
         }
     }
     
-    public boolean excluir(Pedido p) {
+    public boolean excluir(Produto produto) {
         PreparedStatement stmt = null;
         try {
             //para eu ter controle das tranções
             con.setAutoCommit(false);
-            String sql = "delete from pedidos where codigo = ?";
+            String sql = "delete from produto where codigo = ?";
             //preparando o script
             stmt = con.prepareStatement(sql);
             //trocando o ? pelo nome da marca
-            stmt.setInt(1, p.getCodigo());
+            stmt.setInt(1, produto.getCodigo());
             //exeutando o scrpit no banco de dados
             stmt.execute();
             //executar/confirmar a transação no bano de dados
@@ -139,20 +129,21 @@ public class ProdutoDAO {
             }
         }
     }
-    
-    public boolean alterar(Pedido p) {
+    // (codigo, descricao, preco, imagem, disponivel, nome)
+    public boolean alterar(Produto produto) {
         PreparedStatement stmt = null;
         try {
             //para eu ter controle das tranções
             con.setAutoCommit(false);
-            String sql = "update pedidos set codProduto = ?, codCliente = ?, dataHora = ?, status = ? where codigo = ?";
+            String sql = "update produto set descricao = ?, preco = ?, imagem = ?, disponivel = ?, nome = ? where codigo = ?";
             //preparando o script
             stmt = con.prepareStatement(sql);
             //trocando o ? pelo nome da marca
-            stmt.setInt(1, p.getCodProduto());
-            stmt.setInt(2, p.getCodCliente());
-            stmt.setDate(3, (java.sql.Date) p.getDataHora());
-            stmt.setInt(4, p.getStatus());
+            stmt.setString(1, produto.getDescricao());
+            stmt.setFloat(2, produto.getPreco());
+            stmt.setBytes(3, produto.getImagens());
+            stmt.setBoolean(4, true);
+            stmt.setString(5, produto.getNome());
             
             //exeutando o scrpit no banco de dados
             stmt.execute();
