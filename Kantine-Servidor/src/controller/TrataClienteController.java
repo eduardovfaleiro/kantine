@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author aluno
  */
-public class TrataClienteController {
+public class TrataClienteController extends Thread  {
 
     private Socket socket;
     private ObjectInputStream in;
@@ -45,17 +45,7 @@ public class TrataClienteController {
             // enquanto o comando NÃO for fim, fica dentro do looping
             while (!comando.equalsIgnoreCase("fim")) {                
                 System.out.println("Cliente "+idUnico+" enviou o comando: "+comando);
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+
                 comando = (String) in.readObject();
             }
         
