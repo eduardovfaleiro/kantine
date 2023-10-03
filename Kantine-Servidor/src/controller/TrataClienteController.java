@@ -11,6 +11,8 @@ import java.net.Socket;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.UsuarioDAO;
+import modelDominio.Usuario;
 
 /**
  *
@@ -45,7 +47,14 @@ public class TrataClienteController extends Thread  {
             // enquanto o comando NÃO for fim, fica dentro do looping
             while (!comando.equalsIgnoreCase("fim")) {                
                 System.out.println("Cliente "+idUnico+" enviou o comando: "+comando);
-
+                if (comando.equalsIgnoreCase("EfetuarLogin")){
+                    out.writeObject("MandaAíMano");
+                    Usuario usr = (Usuario) in.readObject();
+                    System.out.println(usr);
+                    // chamar o UsuarioDao e o metodo efetuarLogin
+                    UsuarioDAO usrDao = new UsuarioDAO();
+                    out.writeObject(usrDao.efetuarLogin(usr));
+                }
                 comando = (String) in.readObject();
             }
         
