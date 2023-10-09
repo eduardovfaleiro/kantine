@@ -35,7 +35,7 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="368" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTEmailLogin" min="-2" pref="368" max="-2" attributes="0"/>
+                  <Component id="JTUsuarioLogin" min="-2" pref="368" max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Component id="JPSenhaLogin" alignment="0" max="32767" attributes="0"/>
@@ -67,7 +67,7 @@
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JTEmailLogin" min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="JTUsuarioLogin" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -91,7 +91,7 @@
         <Property name="text" type="java.lang.String" value="Login de Usu&#xe1;rio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTEmailLogin">
+    <Component class="javax.swing.JTextField" name="JTUsuarioLogin">
     </Component>
     <Component class="javax.swing.JButton" name="JBCadastrar">
       <Properties>
@@ -115,7 +115,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Email"/>
+        <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">

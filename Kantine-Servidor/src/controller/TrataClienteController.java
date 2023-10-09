@@ -54,6 +54,14 @@ public class TrataClienteController extends Thread  {
                     // chamar o UsuarioDao e o metodo efetuarLogin
                     UsuarioDAO usrDao = new UsuarioDAO();
                     out.writeObject(usrDao.efetuarLogin(usr));
+                }else if (comando.equalsIgnoreCase("EfetuarCadastro")){
+                    out.writeObject("MandaAíMano");
+                    int tipoUsuario = (int) in.readObject();
+                    Usuario usr = (Usuario) in.readObject();
+                    System.out.println(usr);
+                    // chamar o UsuarioDao e o metodo efetuarLogin
+                    UsuarioDAO usrDao = new UsuarioDAO();
+                    out.writeObject(usrDao.efetuarCadastro(usr, tipoUsuario));
                 }
                 comando = (String) in.readObject();
             }

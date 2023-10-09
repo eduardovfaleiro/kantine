@@ -175,9 +175,9 @@ public class TelaCadastro extends javax.swing.JFrame {
             Usuario usuario;
             String senha = new String (JPSenha.getPassword());
             String senhaCripto = PasswordHasher.hashPassword(senha);
-   
+            System.out.println(senhaCripto);
             usuario = new Usuario(JTUsuario.getText(),senhaCripto, JTEmail.getText(), JTTelefone.getText());
-        
+            
         }
     }//GEN-LAST:event_JBCadastrarActionPerformed
 

@@ -32,7 +32,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        JTEmailLogin = new javax.swing.JTextField();
+        JTUsuarioLogin = new javax.swing.JTextField();
         JBCadastrar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
@@ -58,7 +58,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/logo-removebg-preview.png"))); // NOI18N
 
-        jLabel3.setText("Email");
+        jLabel3.setText("Usuário");
 
         jLabel4.setText("Senha");
 
@@ -89,7 +89,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(JTEmailLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTUsuarioLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(JPSenhaLogin, javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +115,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTEmailLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTUsuarioLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addGap(12, 12, 12)
@@ -138,7 +138,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String senha = new String(JPSenhaLogin.getPassword());
-        Usuario usr = new Usuario(JTEmailLogin.getText(), senha);
+        Usuario usr = new Usuario(JTUsuarioLogin.getText(), senha);
         Usuario usrLogin = null; //Kantine.ccont.efetuarLogin(usr);
         if (usrLogin != null){
             // guardando o usuário dentro do Conexao Controller
@@ -186,7 +186,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton JBCadastrar;
     private javax.swing.JLabel JLErro;
     private javax.swing.JPasswordField JPSenhaLogin;
-    private javax.swing.JTextField JTEmailLogin;
+    private javax.swing.JTextField JTUsuarioLogin;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

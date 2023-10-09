@@ -76,6 +76,27 @@ public class UsuarioDAO {
         }
     }
     
+    public Usuario efetuarCadastro (Usuario usr, int tipoUsuario){
+        PreparedStatement stmt = null;
+        try {
+            String sql = "insert into clientes (nome, email, telefone, senha, tipo) values (?, ?, ?, ?, ?) ";
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, usr.getNome());
+            stmt.setString(2, usr.getEmail());
+            stmt.setString(3, usr.getTelefone());
+            stmt.setString(4, usr.getSenha());
+            stmt.setInt(5, tipoUsuario);
+            
+            stmt.execute();
+            con.commit();
+            
+            return usr;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
     
 }
 

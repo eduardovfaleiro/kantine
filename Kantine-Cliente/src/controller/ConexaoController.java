@@ -49,4 +49,18 @@ public class ConexaoController {
             return null;
         }
     }
+    
+    public Usuario efetuarCadastro(Usuario usr){
+        try {
+            out.writeObject("EfetuarCadastro");
+            String msg = (String) in.readObject();
+            out.writeObject(usr);
+            msg = (String) in.readObject();
+            out.writeObject(0); // enviando o tipo de usuário
+            return (Usuario) in.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
